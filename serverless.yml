@@ -1,0 +1,14 @@
+service: vercel-aws-benchmarker
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+functions:
+  benchmark:
+    environment:
+      COLD_START_LAMBDA: ${env:COLD_START_LAMBDA}
+      COLD_START_VERCEL: $env:COLD_START_VERCEL}
+    handler: handler.benchmark
+    events:
+      - schedule: rate(15 minutes)
