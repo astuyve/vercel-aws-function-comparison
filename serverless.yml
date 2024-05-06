@@ -8,7 +8,7 @@ functions:
   benchmark:
     environment:
       COLD_START_LAMBDA: ${env:COLD_START_LAMBDA}
-      COLD_START_VERCEL: $env:COLD_START_VERCEL}
+      COLD_START_VERCEL: ${env:COLD_START_VERCEL}
     handler: handler.benchmark
     events:
       - schedule: rate(15 minutes)
