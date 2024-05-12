@@ -6,6 +6,9 @@ const { createMetricsLogger, Unit, StorageResolution } = require("aws-embedded-m
 const urls = {
   aws: process.env.COLD_START_LAMBDA,
   vercel: process.env.COLD_START_VERCEL,
+  vercel_old_runtime: process.env.COLD_START_VERCEL_OLD_RUNTIME,
+  lwa: process.env.COLD_START_LWA,
+  hono: process.env.COLD_START_HONO,
 }
 
 const invokeFunction = async (name, url) => {
@@ -31,7 +34,7 @@ module.exports.benchmark = async (event) => {
     return await invokeFunction(name, url)
   }))
   results.map((res) => {
-    if (res.coldStartResult && res.processUptime <= 0.099) {
+    if (res.coldStartResult && res.processUptime <= 1.0) {
       metrics.putMetric(`${res.name}-latency`, res.roundTripInvokeMs, Unit.Milliseconds, StorageResolution.Standard);
     } else {
     console.log('probably not a cold start: ', res)

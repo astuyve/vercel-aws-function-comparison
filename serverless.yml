@@ -9,6 +9,9 @@ functions:
     environment:
       COLD_START_LAMBDA: ${env:COLD_START_LAMBDA}
       COLD_START_VERCEL: ${env:COLD_START_VERCEL}
+      COLD_START_VERCEL_OLD_RUNTIME: ${env:COLD_START_VERCEL_OLD_RUNTIME}
+      COLD_START_HONO: ${env:COLD_START_HONO}
+      COLD_START_LWA: ${env:COLD_START_LWA}
     handler: handler.benchmark
     events:
       - schedule: rate(15 minutes)
