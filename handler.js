@@ -9,6 +9,7 @@ const urls = {
   vercel_old_runtime: process.env.COLD_START_VERCEL_OLD_RUNTIME,
   lwa: process.env.COLD_START_LWA,
   hono: process.env.COLD_START_HONO,
+  serverless_http: process.env.COLD_START_SERVERLESS_HTTP,
 }
 
 const invokeFunction = async (name, url) => {

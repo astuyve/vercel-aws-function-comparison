@@ -12,6 +12,7 @@ functions:
       COLD_START_VERCEL_OLD_RUNTIME: ${env:COLD_START_VERCEL_OLD_RUNTIME}
       COLD_START_HONO: ${env:COLD_START_HONO}
       COLD_START_LWA: ${env:COLD_START_LWA}
+      COLD_START_SERVERLESS_HTTP: ${env:COLD_START_SERVERLESS_HTTP}
     handler: handler.benchmark
     events:
       - schedule: rate(15 minutes)
